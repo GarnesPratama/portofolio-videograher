@@ -12,7 +12,11 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        body: ["Public Sans"],
+        forum: ["Forum"],
+      },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 } satisfies Config;
