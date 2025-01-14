@@ -4,7 +4,7 @@ import Footer from "../molecules/footer";
 
 const BaseLayout = (props: any) => {
   return (
-    <div className="">
+    <div className=" bg-white">
       <Navbar className={""} />
       <section>{props?.children}</section>
       <Footer />
