@@ -42,8 +42,16 @@ const Cardlanding = () => {
         <div className=" w-full">
           <div className=" justify-end grid place-content-end my-auto mt-10">
             <div className="cta my-[80px] flex">
-              <button className="btn btn-outline rounded-3xl w-[199px] text-[20px] font-[500]">
-                View Details
+              <button className="btn btn-outline rounded-3xl w-[199px] text-[20px] font-[500] border-[#454545] text-[#454545]">
+                <p className="font-[500]">
+                  View Details
+                </p>
+                <Image
+                  src={"/arrow_grey.svg"}
+                  alt="Arrow"
+                  width={20}
+                  height={20}
+                />
               </button>
             </div>
           </div>

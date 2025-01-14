@@ -32,7 +32,7 @@ const Footer = () => {
         </nav>
       </div>
       <div className="w-full border-[#D0D0D1] h-4 border-t-2 container mx-auto"></div>
-      <div className="my-[48px] text-[#454446] text-[16px] font-[400] container mx-auto">
+      <div className="py-[48px] text-[#454446] text-[16px] font-[400] container mx-auto text-center lg:text-start">
         © 2025 Rivandi Dwi Widjayanto. All rights reserved.
       </div>
     </footer>
