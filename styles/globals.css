@@ -18,4 +18,27 @@ body {
   color: var(--foreground);
   background: var(--background);
   @apply font-body;
+
+  .button-gradient-allproject{
+      background: linear-gradient(90deg, #FEF3EE 0%, #FCE5D8 100%);
+      border: 1px solid transparent; /* Border transparan agar border-image terlihat */
+      /* border-image-source: linear-gradient(90deg, #901F1C 0%, #E94B26 100%);  */
+      border-image-slice: 1; /* Menentukan proporsi border image */
+      padding: 10px 20px;
+      width: max-content;
+      font-size: 16px;
+      cursor: pointer;
+      color: #B52419;
+      border-radius: 8px;
+      font-weight: 400;
+      transition: background 0.3s ease;
+      border-radius: 24px;
+    }
+    
+    /* Efek hover */
+    .button-gradient-allproject:hover {
+      background: linear-gradient(90deg, #FCE5D8 0%, #FEF3EE 100%);
+    }
+    
+  
 }
