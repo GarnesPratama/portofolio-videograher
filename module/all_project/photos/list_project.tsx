@@ -51,7 +51,7 @@ const ListProjectVideo = () => {
       </section>
       <section>
         {images.map((image, index) => (
-          <div key={index} className="flex w-full h-[400px] px-10 gap-7 py-3">
+          <div key={index} className="flex w-full h-[400px] px-10 gap-7 py-3 justify-center">
             <div className={`flex-[${index % 2 === 0 ? 3 : 2}] bg-red-500`}>
               <img
                 src={image.img1}
