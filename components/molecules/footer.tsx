@@ -3,8 +3,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer>
-      <div className="footer bg-white text-base-content p-10 container mx-auto">
+    <footer className="bg-[#FAFAFA]">
+      <div className="footer  text-base-content p-10 container mx-auto">
         <aside>
           <Image src={"/logo_black.svg"} alt="logo" width={250} height={32} />
         </aside>
