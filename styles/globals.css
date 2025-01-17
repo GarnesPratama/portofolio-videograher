@@ -26,7 +26,6 @@ body {
       border-image-slice: 1; /* Menentukan proporsi border image */
       padding: 10px 20px;
       width: max-content;
-      font-size: 16px;
       cursor: pointer;
       color: #B52419;
       border-radius: 8px;

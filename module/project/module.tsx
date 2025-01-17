@@ -1,15 +1,16 @@
 import BaseLayout from "@/components/layouts/baseLayout";
 import React from "react";
 import Jumbotron from "./jumbotron";
-import ListProjectVideo from "./list_project";
 
-const AllPagePhotoModule = () => {
+import ContentProject from "./content";
+
+const AllPageModule = () => {
   return (
     <BaseLayout>
       <Jumbotron />
-      <ListProjectVideo />
+      <ContentProject />
     </BaseLayout>
   );
 };
 
-export default AllPagePhotoModule;
+export default AllPageModule;
