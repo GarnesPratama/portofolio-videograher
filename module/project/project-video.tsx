@@ -7,7 +7,7 @@ const ListProjectVideo = () => {
   const dummyContent = [
     {
       id: 1,
-      imgSrc: "/all_project/dummy_all_page_video1.svg",
+      imgSrc: "/project/dummy_all_page_video1.svg",
       title:
         "Diaries Festival ANTV Rame: Gildcoustic Bikin Penonton Nangis Dipanggung",
       description: "Resonate ANTV Jamming Session",
@@ -15,7 +15,7 @@ const ListProjectVideo = () => {
     },
     {
       id: 2,
-      imgSrc: "/all_project/dummy_all_page_video2.svg",
+      imgSrc: "/project/dummy_all_page_video2.svg",
       title:
         "Diaries Festival ANTV Rame: Gildcoustic Bikin Penonton Nangis Dipanggung",
       description: "Resonate ANTV Jamming Session",
@@ -23,7 +23,7 @@ const ListProjectVideo = () => {
     },
     {
       id: 3,
-      imgSrc: "/all_project/dummy_all_page_video3.svg",
+      imgSrc: "/project/dummy_all_page_video3.svg",
       title:
         "Diaries Festival ANTV Rame: Gildcoustic Bikin Penonton Nangis Dipanggung",
       description: "Resonate ANTV Jamming Session",
@@ -31,7 +31,7 @@ const ListProjectVideo = () => {
     },
     {
       id: 4,
-      imgSrc: "/all_project/dummy_all_page_video4.svg",
+      imgSrc: "/project/dummy_all_page_video4.svg",
       title:
         "Diaries Festival ANTV Rame: Gildcoustic Bikin Penonton Nangis Dipanggung",
       description: "Resonate ANTV Jamming Session",

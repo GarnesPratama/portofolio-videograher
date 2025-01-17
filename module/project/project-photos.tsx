@@ -5,20 +5,20 @@ const ListProjectPhoto = () => {
   const router = useRouter();
   const dummyContent = [
     {
-      img1: "/all_project/dummy_all_page_photo1.svg",
-      img2: "/all_project/dummy_all_page_photo2.svg",
+      img1: "/project/dummy_all_page_photo1.svg",
+      img2: "/project/dummy_all_page_photo2.svg",
     },
     {
-      img1: "/all_project/dummy_all_page_photo3.svg",
-      img2: "/all_project/dummy_all_page_photo4.svg",
+      img1: "/project/dummy_all_page_photo3.svg",
+      img2: "/project/dummy_all_page_photo4.svg",
     },
     {
-      img1: "/all_project/dummy_all_page_photo5.svg",
-      img2: "/all_project/dummy_all_page_photo6.svg",
+      img1: "/project/dummy_all_page_photo5.svg",
+      img2: "/project/dummy_all_page_photo6.svg",
     },
     {
-      img1: "/all_project/dummy_all_page_photo7.svg",
-      img2: "/all_project/dummy_all_page_photo8.svg",
+      img1: "/project/dummy_all_page_photo7.svg",
+      img2: "/project/dummy_all_page_photo8.svg",
     },
   ];
   return (
