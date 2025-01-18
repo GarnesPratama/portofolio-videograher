@@ -1,9 +1,9 @@
-import AllPageVideoModule from "@/module/all_project/video/module";
+import AllPageModule from "@/module/project/module";
 import { NextPage } from "next";
 import React from "react";
 
 const AllProjectVideoPage: NextPage = () => {
-  return <AllPageVideoModule />;
+  return <AllPageModule />;
 };
 
 export default AllProjectVideoPage;
