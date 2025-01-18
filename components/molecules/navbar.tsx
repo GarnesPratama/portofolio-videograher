@@ -1,9 +1,13 @@
+import { Link } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React from "react";
 
 const Navbar = (props: any) => {
+  const route = useRouter()
+
   return (
-    <div className={`${props?.className} bg-transparent`}>
+    <div className={`${props?.className} bg-[#FCFCFD]  ${route.pathname == "/all-project/[id]" || "/about-me" ? "border-b-2 py-[15px]" : ""}`}>
       <div className="container mx-auto">
         <div className="navbar">
           {/* Navbar Start */}
@@ -49,20 +53,23 @@ const Navbar = (props: any) => {
                 </li>
               </ul>
             </div>
-            <Image src={"/logo.svg"} alt="logo" width={250} height={32} />
+            <a href="/">
+              <Image src={route.pathname == "/all-project/[id]" ? "/logo_black.svg" : "/logo.svg"} alt="logo" width={250} height={32} />
+            </a>
+
           </div>
 
           {/* Navbar Center */}
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1 text-white font-[400] text-[16px]">
+            <ul className={`menu menu-horizontal px-1 ${route.pathname == "/all-project/[id]" || "/about-me" ? "text-[#454545]" : "text-white"}  font-[400] text-[16px]`}>
               <li>
-                <a>Home</a>
+                <a href="/">Home</a>
               </li>
               <li>
-                <a>Projects</a>
+                <a href="/all-project">Projects</a>
               </li>
               <li>
-                <a>About</a>
+                <a href="/about-me">About</a>
               </li>
             </ul>
           </div>
@@ -71,7 +78,7 @@ const Navbar = (props: any) => {
           <div className="navbar-end hidden lg:flex">
             <a
               className="btn bg-[#E94B26] w-[250px] rounded-3xl flex items-center justify-center"
-              href="#"
+              href="/contact-us"
             >
               <span className="text-white text-[18px] font-medium">
                 Work With Me

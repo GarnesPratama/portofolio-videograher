@@ -21,7 +21,7 @@ const About = () => {
           Graphics.
         </div>
         <div className="cta my-8 md:my-[50px] flex justify-center md:justify-start">
-          <button className="btn btn-outline rounded-3xl w-[199px] border-[#454545] text-[#454545] flex items-center justify-center space-x-2">
+          <a className="btn btn-outline rounded-3xl w-[199px] border-[#454545] text-[#454545] flex items-center justify-center space-x-2" href="/about-me">
             <p className="text-[16px] md:text-[20px] font-[500]">Read More</p>
             <Image
               src={"/arrow_grey.svg"}
@@ -29,7 +29,7 @@ const About = () => {
               width={20}
               height={20}
             />
-          </button>
+          </a>
         </div>
       </div>
     </div>

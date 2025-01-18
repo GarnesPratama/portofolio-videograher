@@ -12,7 +12,7 @@ const Project = () => {
         <div className="w-full md:w-auto mt-4 md:mt-5 grid justify-items-end">
           <a
             className="btn bg-[#E94B26] w-full sm:w-[250px] rounded-3xl flex items-center justify-between px-4 py-2"
-            href="#projects"
+            href="/all-project"
           >
             <p className="text-white text-[16px] sm:text-[18px] font-medium">
               See All Projects

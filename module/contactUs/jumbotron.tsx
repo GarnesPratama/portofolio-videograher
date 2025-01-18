@@ -6,7 +6,7 @@ const Jumbotron = () => {
             className="-mt-20 text-white bg-cover bg-center h-96 sm:h-[30rem] lg:h-[35rem]"
             style={{ backgroundImage: "url('/project/jumbroton_all_project_video.png')" }}
         >
-            <div className="relative w-full h-full flex flex-row justify-center items-center gap-0">
+            <div className="w-full h-full flex flex-row justify-center items-center gap-0">
                 <div className="font-forum font-bold text-white text-4xl sm:text-5xl lg:text-6xl text-center">
                     Get In Touch
                 </div>

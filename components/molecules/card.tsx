@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Router from "next/router";
 import React from "react";
 
 const Cardlanding = () => {
@@ -42,7 +43,7 @@ const Cardlanding = () => {
         <div className=" w-full">
           <div className=" justify-end grid place-content-end my-auto mt-10">
             <div className="cta my-[80px] flex">
-              <button className="btn btn-outline rounded-3xl w-[199px] text-[20px] font-[500] border-[#454545] text-[#454545]">
+              <button className="btn btn-outline rounded-3xl w-[199px] text-[20px] font-[500] border-[#454545] text-[#454545]" onClick={() => Router.push("/all-project/1")}>
                 <p className="font-[500]">
                   View Details
                 </p>
