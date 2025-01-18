@@ -53,14 +53,14 @@ const Navbar = (props: any) => {
               </ul>
             </div>
             <a href="/">
-              <Image src={route.pathname == "/all-project/[id]" ? "/logo_black.svg" : "/logo.svg"} alt="logo" width={250} height={32} />
+              <Image src={route.pathname == "/all-project/[id]" || route.pathname == "/about-me" ? "/logo_black.svg" : "/logo.svg"} alt="logo" width={250} height={32} />
             </a>
 
           </div>
 
           {/* Navbar Center */}
           <div className="navbar-center hidden lg:flex">
-            <ul className={`menu menu-horizontal px-1 ${route.pathname == "/all-project/[id]" || "/about-me" ? "text-[#454545]" : "text-white"}  font-[400] text-[16px]`}>
+            <ul className={`menu menu-horizontal px-1 ${route.pathname == "/all-project/[id]" || route.pathname == "/about-me" ? "text-[#454545]" : "text-white"}  font-[400] text-[16px]`}>
               <li>
                 <a href="/">Home</a>
               </li>

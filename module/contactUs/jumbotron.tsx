@@ -3,7 +3,7 @@ import React from 'react'
 const Jumbotron = () => {
     return (
         <div
-            className="-mt-20 text-white bg-cover bg-center h-96 sm:h-[30rem] lg:h-[35rem]"
+            className="-mt-40 text-white bg-cover bg-center h-96 sm:h-[30rem] lg:h-[35rem]"
             style={{ backgroundImage: "url('/project/jumbroton_all_project_video.png')" }}
         >
             <div className="w-full h-full flex flex-row justify-center items-center gap-0">
