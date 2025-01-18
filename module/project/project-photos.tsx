@@ -22,7 +22,7 @@ const ListProjectPhoto = () => {
     },
   ];
   return (
-    <section>
+    <section className=" grid justify-center">
       {dummyContent.map((image, index) => (
         <div
           key={index}

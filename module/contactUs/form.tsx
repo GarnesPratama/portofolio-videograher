@@ -5,7 +5,7 @@ const Form = () => {
     <div className="px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto my-20">
         <img
-          src="/all_project/wheel.svg"
+          src="/project/wheel.svg"
           alt="wheel"
           className="lg:w-10 md:w-8 w-6 h-auto mb-4"
         />
