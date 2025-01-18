@@ -37,16 +37,16 @@ const Navbar = (props: any) => {
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
               >
                 <li>
-                  <a>Home</a>
+                  <a href="/">Home</a>
                 </li>
                 <li>
-                  <a>Projects</a>
+                  <a href="/all-project">Projects</a>
                 </li>
                 <li>
-                  <a>About</a>
+                  <a href="/about-me">About</a>
                 </li>
                 <li>
-                  <a className="btn bg-[#E94B26] w-full rounded-3xl text-white">
+                  <a href="/contact-us" className="btn bg-[#E94B26] w-full rounded-3xl text-white">
                     Work With Me
                   </a>
                 </li>
