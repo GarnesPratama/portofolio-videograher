@@ -1,13 +1,14 @@
 import BaseLayout from '@/components/layouts/baseLayout'
 import React from 'react'
 import Jumbotron from './Desription'
-import Form from './form'
+import Experience from './experience'
+
 
 const AboutMeModule = () => {
     return (
         <BaseLayout>
             <Jumbotron />
-            {/* <Form /> */}
+            <Experience />
         </BaseLayout>
     )
 }
