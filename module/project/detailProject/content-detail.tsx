@@ -1,6 +1,6 @@
 import React from "react";
-import OtherProjectModule from "./otherProject";
 import { useRouter } from "next/router";
+import OtherProjectModule from "./otherProject";
 
 const ContentDetailModule = () => {
   const router = useRouter();
@@ -116,6 +116,7 @@ const ContentDetailModule = () => {
           </div>
         ))}
       </section>
+
       <OtherProjectModule />
     </div>
   );
