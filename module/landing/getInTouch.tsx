@@ -22,7 +22,7 @@ const GetInTouch = () => {
                         </p>
                     </div>
                     <div className="flex items-start mt-10 lg:mt-[180px]">
-                        <a className="bg-[#E94B26] hover:bg-[#c83d21] transition lg:w-[150px] w-full rounded-3xl py-3 text-center">
+                        <a href='/contact-us' className="bg-[#E94B26] hover:bg-[#c83d21] transition lg:w-[150px] w-full rounded-3xl py-3 text-center">
                             <p className="text-white text-[18px] font-medium">Get In Touch</p>
                         </a>
                     </div>
