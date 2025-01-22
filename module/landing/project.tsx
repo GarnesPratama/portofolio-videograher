@@ -1,18 +1,29 @@
 import Cardlanding from "@/components/molecules/card";
 import Image from "next/image";
 import React from "react";
+import { motion } from "framer-motion"; // Import framer-motion for scroll-triggered animations
 
 const Project = () => {
   return (
     <div className="container mx-auto mt-[100px] px-4 sm:px-6 lg:px-8">
       <div className="flex flex-wrap justify-between items-center">
-        <div className="w-full md:w-auto font-forum text-[32px] sm:text-[48px] md:text-[61px] font-[400] text-[#454545]">
+        <motion.div
+          className="w-full md:w-auto font-forum text-[32px] sm:text-[48px] md:text-[61px] font-[400] text-[#454545]"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, amount: 0.2 }} // Animate on scroll
+        >
           Featured Projects
-        </div>
+        </motion.div>
         <div className="w-full md:w-auto mt-4 md:mt-5 grid justify-items-end">
-          <a
+          <motion.a
             className="btn bg-[#E94B26] w-full sm:w-[250px] rounded-3xl flex items-center justify-between px-4 py-2"
             href="/all-project"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true, amount: 0.2 }} // Animate on scroll
           >
             <p className="text-white text-[16px] sm:text-[18px] font-medium">
               See All Projects
@@ -24,12 +35,26 @@ const Project = () => {
               height={20}
               className="ml-2"
             />
-          </a>
+          </motion.a>
         </div>
       </div>
       <div className="mt-[50px]">
-        <Cardlanding />
-        <Cardlanding />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, amount: 0.2 }} // Animate on scroll
+        >
+          <Cardlanding />
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true, amount: 0.2 }} // Animate on scroll
+        >
+          <Cardlanding />
+        </motion.div>
       </div>
     </div>
   );
