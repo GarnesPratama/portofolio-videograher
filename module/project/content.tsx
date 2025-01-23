@@ -1,33 +1,25 @@
 import React, { useState } from "react";
-import ListProjectPhoto from "./project-photos";
 import ListProjectVideo from "./project-video";
+import ListProjectPhoto from "./project-photos";
+// Asumsikan ada komponen Photo juga
 
 const ContentProject = () => {
   const [selectedCategory, setSelectedCategory] = useState("Video Editing");
 
   return (
     <div className="bg-white">
-      <section className=" container mx-auto py-9">
+      <section className="container mx-auto py-9">
         <div className="navbar flex flex-wrap items-center justify-between px-4">
-          {/* Navbar Start */}
-          <div className="md:navbar-start text-[#901F1C] font-body text-[24px] font-[500] ">
+          {/* Navbar */}
+          <div className="md:navbar-start text-[#901F1C] font-body text-[24px] font-[500]">
             All Project
           </div>
-
-          {/* Navbar End */}
           <div className="navbar-end w-auto">
             <ul className="menu flex flex-wrap menu-horizontal text-[#454545] font-body text-[16px] md:text-[20px] md:gap-4 gap-2">
-              {/* Filter Text */}
-              <div className="w-full  text-left text-[#8888] font-body text-[16px] font-[300] ">
-                Filter by:
-              </div>
-
               {/* Filter Buttons */}
               <button
                 className={`${
-                  selectedCategory === "Video Editing"
-                    ? "hover:text-[#E94B26] hover:bg-transparent text-[#E94B26]"
-                    : ""
+                  selectedCategory === "Video Editing" ? "text-[#E94B26]" : ""
                 }`}
                 onClick={() => setSelectedCategory("Video Editing")}
               >
@@ -35,9 +27,7 @@ const ContentProject = () => {
               </button>
               <button
                 className={`${
-                  selectedCategory === "Color Grading"
-                    ? "hover:text-[#E94B26] hover:bg-transparent text-[#E94B26]"
-                    : ""
+                  selectedCategory === "Color Grading" ? "text-[#E94B26]" : ""
                 }`}
                 onClick={() => setSelectedCategory("Color Grading")}
               >
@@ -45,9 +35,7 @@ const ContentProject = () => {
               </button>
               <button
                 className={`${
-                  selectedCategory === "Cinematography"
-                    ? "hover:text-[#E94B26] hover:bg-transparent text-[#E94B26]"
-                    : ""
+                  selectedCategory === "Cinematography" ? "text-[#E94B26]" : ""
                 }`}
                 onClick={() => setSelectedCategory("Cinematography")}
               >
@@ -55,9 +43,7 @@ const ContentProject = () => {
               </button>
               <button
                 className={`${
-                  selectedCategory === "Photography"
-                    ? "hover:text-[#E94B26] hover:bg-transparent text-[#E94B26]"
-                    : ""
+                  selectedCategory === "Photography" ? "text-[#E94B26]" : ""
                 }`}
                 onClick={() => setSelectedCategory("Photography")}
               >
@@ -67,8 +53,12 @@ const ContentProject = () => {
           </div>
         </div>
       </section>
+
+      {/* Show ListProjectVideo only for Video Editing category */}
       {selectedCategory === "Video Editing" ? (
-        <ListProjectVideo />
+        <div id="content-project-section">
+          <ListProjectVideo />
+        </div>
       ) : (
         <ListProjectPhoto />
       )}
