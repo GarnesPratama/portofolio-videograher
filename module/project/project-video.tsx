@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import { motion } from "framer-motion";
 
 const ListProjectVideo = () => {
   const router = useRouter();
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [pageLoaded, setPageLoaded] = useState(false); // State untuk mendeteksi apakah halaman sudah dimuat
+  const imageRefs = useRef<(HTMLElement | null)[]>([]); // Array referensi yang bisa null
+
   const dummyContent = [
     {
       id: 1,
@@ -38,16 +43,71 @@ const ListProjectVideo = () => {
       tags: ["Video Editing", "Color Grading", "Cinematography"],
     },
   ];
+
+  // Hook untuk menghitung scroll progress
+  const handleScroll = () => {
+    const scrollTop = window.scrollY;
+    const scrollHeight =
+      document.documentElement.scrollHeight - window.innerHeight;
+    const scrollPercentage = (scrollTop / scrollHeight) * 100;
+    setScrollProgress(scrollPercentage);
+  };
+
+  // Scroll otomatis ke gambar ketika gambar masuk ke viewport
+  const handleImageEnter = (index: number) => {
+    if (!pageLoaded) return; // Jangan scroll otomatis sebelum halaman dimuat
+    const imageElement = imageRefs.current[index];
+    if (imageElement) {
+      window.scrollTo({
+        top: imageElement.offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  useEffect(() => {
+    // Set state untuk mendeteksi bahwa halaman sudah dimuat
+    const timer = setTimeout(() => {
+      setPageLoaded(true); // Halaman sudah dimuat, aktifkan scroll otomatis
+    }, 1000); // Set timeout 1 detik (atau sesuai kebutuhan)
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      clearTimeout(timer); // Membersihkan timeout saat unmount
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
-      {dummyContent?.map((project) => (
-        <section className="relative">
-          <img
-            src={project.imgSrc}
-            alt="dummy-photo"
-            className="object-cover w-full"
-          />
+      {/* Progress bar */}
+      <div className="progress" style={{ width: `${scrollProgress}%` }}></div>
 
+      {dummyContent?.map((project, index) => (
+        <section
+          className="relative"
+          key={project.id}
+          ref={(el) => {
+            // Pastikan kita tidak mengembalikan nilai dari callback ref
+            if (el) imageRefs.current[index] = el;
+          }} // Menambahkan ref ke setiap section tanpa mengembalikan nilai
+        >
+          {/* Scroll otomatis ketika gambar masuk viewport */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.2, ease: "easeOut" }} // Memperpanjang durasi dan menggunakan easing
+            viewport={{ once: true, amount: 0.3 }}
+            onViewportEnter={() => handleImageEnter(index)} // Scroll otomatis saat gambar masuk viewport
+          >
+            <img
+              src={project.imgSrc}
+              alt="dummy-photo"
+              className="object-cover w-full h-screen"
+            />
+          </motion.div>
+
+          {/* Project Text and Button */}
           <div className="absolute lg:bottom-20 md:bottom-5 bottom-0 left-0 right-0 lg:px-20 md:px-10 px-4">
             <div className="mt-4 flex flex-wrap gap-3 lg:mb-5 md:mb-3 mb-0 text-[10px]">
               {project?.tags?.map((tag, index) => (
@@ -62,7 +122,7 @@ const ListProjectVideo = () => {
 
             <div className="lg:flex grid justify-between items-center w-full mb-5">
               <div className="">
-                <h2 className="lg:text-[30px] md:text-[20px] text-[12px]  text-[#F6F6F6] font-[600] mt-5">
+                <h2 className="lg:text-[30px] md:text-[20px] text-[12px] text-[#F6F6F6] font-[600] mt-5">
                   {project?.title}
                 </h2>
                 <p className="text-[#D1D1D1] font-body lg:text-[19px] md:text-[15px] text-[10px] font-[400]">
@@ -72,7 +132,7 @@ const ListProjectVideo = () => {
 
               <button
                 onClick={() => router.push("/all-project/1")}
-                className=" outline px-3 py-1 w-max lg:mt-0 mt-3 rounded-3xl lg:text-[20px] md:text-[15px] text-[12px] font-[500] border-white text-white hover:bg-[#FEF3EE] hover:border-[#B52419] hover:text-[#B52419] flex items-center"
+                className="outline px-3 py-1 w-max lg:mt-0 mt-3 rounded-3xl lg:text-[20px] md:text-[15px] text-[12px] font-[500] border-white text-white hover:bg-[#FEF3EE] hover:border-[#B52419] hover:text-[#B52419] flex items-center"
               >
                 <p className="font-[500]">View Details</p>
                 <Image
