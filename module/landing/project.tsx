@@ -2,6 +2,7 @@ import Cardlanding from "@/components/molecules/card";
 import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion"; // Import framer-motion for scroll-triggered animations
+import { useGetFeaturedProject } from "./api";
 
 const Project = () => {
   return (
@@ -47,14 +48,14 @@ const Project = () => {
         >
           <Cardlanding />
         </motion.div>
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true, amount: 0.2 }} // Animate on scroll
         >
           <Cardlanding />
-        </motion.div>
+        </motion.div> */}
       </div>
     </div>
   );

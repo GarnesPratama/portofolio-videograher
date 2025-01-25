@@ -1,6 +1,8 @@
 import React from "react";
+import { useGetAboutMePage } from "./api";
 
 const Skill = () => {
+  const { data } = useGetAboutMePage();
   const mySkill = [
     { data: "Cinematography" },
     { data: "Color Grading" },
@@ -46,9 +48,9 @@ const Skill = () => {
               </h1>
             </div>
             <div className="flex flex-wrap justify-center gap-4 mt-5">
-              {mySkill?.map((items) => (
+              {data?.my_skills?.map((items: any) => (
                 <p className="px-6 py-2 bg-white border-[#F8C7B0] border-solid border-2 rounded-full text-[#0606065d] w-fit font-sans text-[14px] md:text-[16px] lg:text-[18px] font-[600]">
-                  {items?.data}
+                  {items?.name}
                 </p>
               ))}
             </div>

@@ -1,7 +1,9 @@
 import Image from "next/image";
 import { motion } from "framer-motion"; // Import framer-motion for animations
+import { useGetMyExpertise } from "./api";
 
 export default function Expertise() {
+  const { data } = useGetMyExpertise();
   const expertise = [
     {
       title: "Video Editing",
@@ -55,11 +57,12 @@ export default function Expertise() {
       </div>
       <div className="py-16 px-6 text-center container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 mx-[100px] gap-4">
-          {expertise.map((item, index) => (
+          {data?.map((item: any, index: any) => (
             <motion.div
               key={index}
-              className={`flex flex-col-reverse lg:flex-row ${index % 4 < 2 ? "lg:flex-row" : "lg:flex-row-reverse"
-                } items-center text-center lg:text-left gap-4`}
+              className={`flex flex-col-reverse lg:flex-row ${
+                index % 4 < 2 ? "lg:flex-row" : "lg:flex-row-reverse"
+              } items-center text-center lg:text-left gap-4`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -67,7 +70,8 @@ export default function Expertise() {
             >
               <div className="w-52 h-24 rounded-full overflow-hidden border-2 border-gray-200">
                 <Image
-                  src={item.img}
+                  // src={item.img}
+                  src={"/Landing/dummy_expertise.svg"}
                   alt={item.title}
                   width={312}
                   height={128}
@@ -76,11 +80,11 @@ export default function Expertise() {
               </div>
               <div>
                 <h3 className="text-[30px] font-forum font-[400] text-[#5D5D5D]">
-                  {item.title}
+                  {item.name}
                 </h3>
                 {item.description && (
                   <p className="text-sm text-gray-600 mt-2">
-                    {item.description}
+                    {/* {item.description} */}
                   </p>
                 )}
               </div>

@@ -1,14 +1,17 @@
 import Image from "next/image";
 import React from "react";
 import { motion } from "framer-motion";
+import { useGetAboutMePage } from "./api";
 
 const Description = () => {
+  const { data } = useGetAboutMePage();
+
   return (
     <div className="flex flex-col-reverse lg:flex-row justify-between container mx-auto my-[80px] px-4 sm:px-8 lg:px-16 xl:px-32">
       <div className="section-1 w-full text-[#5D5D5D]">
         <div className="desc">
           <motion.h1
-            className="text-[32px] sm:text-[px] md:text-[44] lg:text-[50px] font-forum font-[400]"
+            className="text-[32px] sm:text-[px] md:text-[44px] lg:text-[50px] font-forum font-[400]"
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -18,16 +21,7 @@ const Description = () => {
           </motion.h1>
 
           <p className="mt-[10px] text-justify font-[400] text-[16px] sm:text-[18px] lg:text-[20px]">
-            I believe in the power of video to connect, inspire, and move
-            audiences. Let's work together to create a unique and impactful
-            video that will leave a lasting impression. I believe in the power
-            of video to connect, inspire, and move audiences. Let's work
-            together to create a unique and impactful video that will leave a
-            lasting impression. I believe in the power of video to connect,
-            inspire, and move audiences. Let's work together to create a unique
-            and impactful video that will leave a lasting impression. Let's work
-            together to create a unique and impactful video that will leave a
-            lasting impression.
+            {data?.nice_to_meet_you}
           </p>
         </div>
         <div className="btn-cta lg:mt-10 mt-5">
@@ -44,8 +38,9 @@ const Description = () => {
       <div className="section-2 w-full mb-10 lg:mb-0 flex justify-center lg:justify-end">
         <Image
           src={"/aboutMe/images.svg"}
+          //   src={data?.profile_picture.url}
           className="w-3/4 sm:w-1/2 lg:w-1/2"
-          alt="images-avatar"
+          alt={data?.profile_picture?.formats.thumbnail?.name}
           width={300}
           height={300}
         />
