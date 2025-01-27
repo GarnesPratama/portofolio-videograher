@@ -24,3 +24,15 @@ export const useGetProjectByDocumentId = (documentId: string) => {
     },
   });
 };
+
+export const useGetOtherProject = (documentId: string) => {
+  return useQuery({
+    queryKey: ["get-other-project", documentId],
+    queryFn: async () => {
+      const { data } = await axios.get(
+        `${process.env.NEXT_PUBLIC_URL}/articles?filters[documentId][$ne]=${documentId}&populate=*`
+      );
+      return data?.data;
+    },
+  });
+};

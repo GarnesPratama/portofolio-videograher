@@ -1,6 +1,12 @@
 import React from "react";
+import { useGetOtherProject } from "../api";
+import { useRouter } from "next/router";
 
 const OtherProjectModule = () => {
+  const router = useRouter();
+  const { documentId } = router.query;
+  const { data } = useGetOtherProject(documentId as string);
+  console.log("cek", data);
   return (
     <div className="bg-[#F6F6F6] lg:-mx-20 md:-mx-16 -mx-6 ">
       <section className="lg:mt-10 md:mt-6 mt-4 lg:mx-20 md:mx-16 mx-6 lg:py-20 md:py-12 py-6 ">
@@ -16,30 +22,21 @@ const OtherProjectModule = () => {
         </div>
 
         <div className="carousel gap-4">
-          <div className="carousel-item">
-            <img
-              src="/project/detailProject/dummy_detail_1.svg"
-              alt="other-project"
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src="/project/detailProject/dummy_detail_2.svg"
-              alt="other-project"
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src="/project/detailProject/dummy_detail_3.svg"
-              alt="other-project"
-            />
-          </div>
-          <div className="carousel-item">
-            <img
-              src="/project/detailProject/dummy_detail_4.svg"
-              alt="other-project"
-            />
-          </div>
+          {data?.map((project: any, index: any) => {
+            return (
+              <div className="carousel-item">
+                <a href={`/all-project/${project?.documentId}`}>
+                  <img
+                    src="/project/detailProject/dummy_detail_1.svg"
+                    // src={project?.cover?.url}
+                    alt="project cover"
+                    // alt={project?.cover?.name}
+                    className="object-cover w-full h-full"
+                  />
+                </a>
+              </div>
+            );
+          })}
         </div>
       </section>
     </div>
