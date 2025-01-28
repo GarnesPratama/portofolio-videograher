@@ -50,12 +50,7 @@ const About = () => {
             href="/about-me"
           >
             <p className="text-[16px] md:text-[20px] font-[500]">Read More</p>
-            <Image
-              src={"/arrow_grey.svg"}
-              alt="Arrow"
-              width={20}
-              height={20}
-            />
+            <Image src={"/arrow_grey.svg"} alt="Arrow" width={20} height={20} />
           </a>
         </motion.div>
       </div>

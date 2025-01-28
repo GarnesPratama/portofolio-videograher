@@ -116,3 +116,7 @@ body {
   scroll-snap-align: start; /* Elemen akan 'snap' ke bagian atas layar */
   height: 100vh; /* Pastikan setiap gambar mengisi satu layar penuh */
 }
+
+html {
+  scroll-behavior: smooth;
+}

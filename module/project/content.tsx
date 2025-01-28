@@ -56,11 +56,16 @@ const ContentProject = () => {
 
       {/* Show ListProjectVideo only for Video Editing category */}
       {selectedCategory === "Video Editing" ? (
-        <div id="content-project-section">
-          <ListProjectVideo />
-        </div>
+        <ListProjectVideo selectedCategory={selectedCategory} />
       ) : (
-        <ListProjectPhoto />
+        <ListProjectPhoto
+          selectedCategory={
+            selectedCategory as
+              | "Color Grading"
+              | "Cinematography"
+              | "Photography"
+          }
+        />
       )}
     </div>
   );
