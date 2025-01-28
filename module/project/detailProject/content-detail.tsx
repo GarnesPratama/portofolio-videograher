@@ -36,12 +36,7 @@ const ContentDetailModule = () => {
             </section>
             <section className=" lg:-mx-20 md:-mx-16 -mx-6 lg:mt-10 md:mt-8 mt-6">
               <iframe
-                // width="420"
-                // height="315"
-                // src="https://www.youtube.com/embed/0z0iXiJxCqY"
                 src={convertToEmbedUrl(detail?.cover_video_content?.url)}
-                // src="https://www.youtube-nocookie.com/embed/u6gVd7MmM60?autohide=1&rel=0&modestbranding=1"
-                // src="https://www.youtube.com/embed/u6gVd7MmM60"
                 className="w-full md:h-screen h-96"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               ></iframe>

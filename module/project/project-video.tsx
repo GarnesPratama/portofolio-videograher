@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 import { useGetAllProject } from "./api";
 interface ListProjectProps {
   selectedCategory:
-    | "Video Editing"
-    | "Color Grading"
-    | "Cinematography"
-    | "Photography";
+  | "Video Editing"
+  | "Color Grading"
+  | "Cinematography"
+  | "Photography";
 }
 
 const ListProjectVideo: React.FC<ListProjectProps> = ({ selectedCategory }) => {
@@ -116,7 +116,7 @@ const ListProjectVideo: React.FC<ListProjectProps> = ({ selectedCategory }) => {
               onViewportEnter={() => handleImageEnter(index)}
             >
               <img
-                src={data?.cover?.url}
+                src={project?.cover?.url}
                 alt="dummy-photo"
                 className="object-cover w-full h-screen"
               />
