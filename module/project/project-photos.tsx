@@ -4,10 +4,10 @@ import { useGetAllProject } from "./api";
 
 interface ListProjectProps {
   selectedCategory:
-    | "Video Editing"
-    | "Color Grading"
-    | "Cinematography"
-    | "Photography";
+  | "Video Editing"
+  | "Color Grading"
+  | "Cinematography"
+  | "Photography";
 }
 
 const ListProjectPhoto: React.FC<ListProjectProps> = ({ selectedCategory }) => {
@@ -55,9 +55,11 @@ const ListProjectPhoto: React.FC<ListProjectProps> = ({ selectedCategory }) => {
   // ];
 
   const cards = filteredData?.map(
-    (item: { title: string; src: string; documentId: string }) => ({
+    (item: {
+      cover: any; title: string; src: string; documentId: string
+    }) => ({
       title: item?.title,
-      src: item?.src,
+      src: item?.cover?.url,
       documentId: item?.documentId,
     })
   );
