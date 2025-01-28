@@ -7,6 +7,7 @@ const ContentDetailModule = () => {
   const router = useRouter();
   const { documentId } = router.query;
   const { data } = useGetProjectByDocumentId(documentId as string);
+  console.log("casd", data)
   const convertToEmbedUrl = (url: any) => {
     return url?.replace("watch?v=", "embed/");
   };
@@ -38,7 +39,7 @@ const ContentDetailModule = () => {
                 // width="420"
                 // height="315"
                 // src="https://www.youtube.com/embed/0z0iXiJxCqY"
-                src={convertToEmbedUrl(detail?.url_video_youtube)}
+                src={convertToEmbedUrl(detail?.cover_video_content?.url)}
                 // src="https://www.youtube-nocookie.com/embed/u6gVd7MmM60?autohide=1&rel=0&modestbranding=1"
                 // src="https://www.youtube.com/embed/u6gVd7MmM60"
                 className="w-full md:h-screen h-96"

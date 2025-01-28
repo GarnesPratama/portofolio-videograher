@@ -6,7 +6,6 @@ const OtherProjectModule = () => {
   const router = useRouter();
   const { documentId } = router.query;
   const { data } = useGetOtherProject(documentId as string);
-  console.log("cek", data);
   return (
     <div className="bg-[#F6F6F6] lg:-mx-20 md:-mx-16 -mx-6 ">
       <section className="lg:mt-10 md:mt-6 mt-4 lg:mx-20 md:mx-16 mx-6 lg:py-20 md:py-12 py-6 ">
