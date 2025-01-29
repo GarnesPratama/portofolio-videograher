@@ -53,7 +53,7 @@ const Navbar = (props: any) => {
               </ul>
             </div>
             <a href="/">
-              <Image src={route.pathname == "/all-project/[documentId]" || route.pathname == "/about-me" ? "/logo_black.svg" : "/logo.svg"} alt="logo" width={250} height={32} />
+              <Image src={route.pathname == "/all-project/[documentId]" || route.pathname == "/about-me" ? "/logo_black.svg" : "/logo.svg"} alt="logo" width={280} height={32} />
             </a>
 
           </div>
