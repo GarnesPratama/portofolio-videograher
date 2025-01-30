@@ -1,28 +1,11 @@
-import Image from "next/image";
+
 import React from "react";
+import { useGetAboutMePage } from "./api";
 
 const WhatIDo = () => {
-  const dummy = [
-    {
-      src: "/project/dummy_all_page_photo8.svg",
-    },
-    {
-      src: "/project/dummy_all_page_photo4.svg",
-    },
-    {
-      src: "/project/dummy_all_page_photo3.svg",
-    },
-    {
-      src: "/project/dummy_all_page_photo7.svg",
-    },
-    {
-      src: "/project/dummy_all_page_photo5.svg",
-    },
-    {
-      title: "Forest Adventure",
-      src: "/project/dummy_all_page_photo1.svg",
-    },
-  ];
+
+
+  const { data } = useGetAboutMePage();
   return (
     <div className="container mx-auto my-[80px] px-4 sm:px-8 lg:px-16 xl:px-20 ">
       <div className=" flex items-center gap-3 md:gap-4 lg:gap-5">
@@ -42,18 +25,20 @@ const WhatIDo = () => {
       </div>
 
       <section className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 mt-5">
-        {dummy?.map((items, index) => {
+        {data?.what_i_dos?.map((items: any, index: any) => {
           return (
             <div
               key={index}
               className="flex justify-center items-center h-full"
             >
               <img
-                src={items?.src}
-                alt=""
+                src={items?.image?.url}
+                alt={items?.image?.name}
                 className="rounded-xl w-full object-cover h-full"
               />
             </div>
+
+
           );
         })}
       </section>

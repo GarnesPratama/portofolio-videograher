@@ -3,25 +3,6 @@ import { useGetAboutMePage } from "./api";
 
 const Skill = () => {
   const { data } = useGetAboutMePage();
-  const mySkill = [
-    { data: "Cinematography" },
-    { data: "Color Grading" },
-    { data: "Motion Graphics" },
-    { data: "Video Editing" },
-    { data: "Art Direction" },
-    { data: "Photography" },
-    { data: "Sound Recording" },
-    { data: "Storytelling" },
-  ];
-
-  const softwareSkill = [
-    { img: "/aboutMe/logos_adobe-premiere.svg", data: "Adobe Premiere Pro" },
-    {
-      img: "/aboutMe/skill-icons_aftereffects.svg",
-      data: "Adobe After Effects",
-    },
-    { img: "/aboutMe/devicon_photoshop.svg", data: "Adobe Photoshop" },
-  ];
 
   return (
     <div
@@ -47,13 +28,21 @@ const Skill = () => {
                 My Skills
               </h1>
             </div>
-            <div className="flex flex-wrap justify-center gap-4 mt-5">
-              {data?.my_skills?.map((items: any) => (
-                <p className="px-6 py-2 bg-white border-[#F8C7B0] border-solid border-2 rounded-full text-[#0606065d] w-fit font-sans text-[14px] md:text-[16px] lg:text-[18px] font-[600]">
-                  {items?.name}
-                </p>
-              ))}
-            </div>
+            {data?.my_skills?.map((items: any) => {
+              return (
+                items?.skill_category?.unique_name === "software" ?
+                  <div className="md:flex grid md:flex-wrap justify-center md:gap-4 md:mt-5 gap-1 mt-3">
+
+
+                    <p className="px-6 py-2 bg-white border-[#F8C7B0] border-solid border-2 rounded-full text-[#0606065d] w-fit font-sans text-[14px] md:text-[16px] lg:text-[18px] font-[600]">
+                      {items?.name}
+                    </p>
+
+
+
+                  </div> : ""
+              )
+            })}
           </section>
 
           <section
@@ -69,30 +58,37 @@ const Skill = () => {
                 Software Skills
               </h1>
             </div>
-            <div className="flex flex-wrap justify-center gap-4 mt-5">
-              {softwareSkill?.map((items) => {
-                return (
-                  <div className="flex justify-center items-center w-fit">
-                    <div
-                      className="flex justify-center items-center gap-3 py-3 px-6 border-[#F8C7B0] border-solid border-2 rounded-full text-[#0606065d] w-fit font-sans text-[18px] font-[600]"
-                      style={{
-                        background:
-                          "linear-gradient(90deg, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 100%)",
-                      }}
-                    >
-                      <img src={items?.img} alt="" className="w-10" />
-                      <p className="text-[18px] md:text-[20px] lg:text-[24px] ">
-                        {items?.data}
-                      </p>
+            {data?.my_skills?.map((items: any) => {
+              return (
+
+                items?.skill_category?.unique_name === "expertise" ?
+
+                  <div className="md:flex grid flex-wrap justify-center gap-4 mt-5">
+
+
+                    <div className="md:flex grid justify-center items-center w-fit">
+                      <div
+                        className="md:flex grid justify-center items-center gap-3 py-3 px-6 border-[#F8C7B0] border-solid border-2 rounded-full text-[#0606065d] w-fit font-sans text-[18px] font-[600]"
+                        style={{
+                          background:
+                            "linear-gradient(90deg, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 100%)",
+                        }}
+                      >
+                        {/* <img src={items?.img} alt="" className="w-10" /> */}
+                        <p className="text-[18px] md:text-[20px] lg:text-[24px] ">
+                          {items?.name}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
-            </div>
+                  </div> : <></>
+              )
+            })}
+
+
           </section>
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 };
 
