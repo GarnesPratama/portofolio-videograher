@@ -3,10 +3,16 @@ import { useRouter } from "next/router";
 import React from "react";
 
 const Navbar = (props: any) => {
-  const route = useRouter()
+  const route = useRouter();
 
   return (
-    <div className={`${props?.className} bg-[#FCFCFD]  ${route.pathname == "/all-project/[documentId]" || "/about-me" ? "border-b-2 py-[15px]" : ""}`}>
+    <div
+      className={`${props?.className} bg-[#FCFCFD]  ${
+        route.pathname == "/all-project/[documentId]" || "/about-me"
+          ? "border-b-2 py-[15px]"
+          : ""
+      }`}
+    >
       <div className="container mx-auto">
         <div className="navbar">
           {/* Navbar Start */}
@@ -46,21 +52,40 @@ const Navbar = (props: any) => {
                   <a href="/about-me">About</a>
                 </li>
                 <li>
-                  <a href="/contact-us" className="btn bg-[#E94B26] w-full rounded-3xl text-white">
+                  <a
+                    href="/contact-us"
+                    className="btn bg-[#E94B26] w-full rounded-3xl text-white"
+                  >
                     Work With Me
                   </a>
                 </li>
               </ul>
             </div>
             <a href="/">
-              <Image src={route.pathname == "/all-project/[documentId]" || route.pathname == "/about-me" ? "/logo_black.svg" : "/logo.svg"} alt="logo" width={280} height={32} />
+              <Image
+                src={
+                  route.pathname == "/all-project/[documentId]" ||
+                  route.pathname == "/about-me"
+                    ? "/logo_black.svg"
+                    : "/logo.svg"
+                }
+                alt="logo"
+                width={280}
+                height={32}
+              />
             </a>
-
           </div>
 
           {/* Navbar Center */}
           <div className="navbar-center hidden lg:flex">
-            <ul className={`menu menu-horizontal px-1 ${route.pathname == "/all-project/[documentId]" || route.pathname == "/about-me" ? "text-[#454545]" : "text-white"}  font-[400] text-[16px]`}>
+            <ul
+              className={`menu menu-horizontal px-1 text-[21px] ${
+                route.pathname == "/all-project/[documentId]" ||
+                route.pathname == "/about-me"
+                  ? "text-[#454545]"
+                  : "text-white"
+              }  font-[400] text-[16px]`}
+            >
               <li>
                 <a href="/">Home</a>
               </li>
