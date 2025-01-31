@@ -16,7 +16,7 @@ const Navbar = (props: any) => {
       <div className="container mx-auto">
         <div className="navbar">
           {/* Navbar Start */}
-          <div className="navbar-start">
+          <div className="navbar-start gap-5 ">
             <div className="dropdown">
               <label
                 tabIndex={0}
@@ -54,26 +54,27 @@ const Navbar = (props: any) => {
                 <li>
                   <a
                     href="/contact-us"
-                    className="btn bg-[#E94B26] w-full rounded-3xl text-white"
+                    className=" bg-[#E94B26] w-full rounded-3xl text-white mt-3 py-2"
                   >
                     Work With Me
                   </a>
                 </li>
               </ul>
             </div>
-            <a href="/">
-              <Image
-                src={
-                  route.pathname == "/all-project/[documentId]" ||
-                  route.pathname == "/about-me"
-                    ? "/logo_black.svg"
-                    : "/logo.svg"
-                }
-                alt="logo"
-                width={280}
-                height={32}
-              />
-            </a>
+            <div className=" w-96">
+              <a href="/">
+                <img
+                  src={
+                    route.pathname == "/all-project/[documentId]" ||
+                    route.pathname == "/about-me"
+                      ? "/logo_black.svg"
+                      : "/logo.svg"
+                  }
+                  alt="logo"
+                  className="lg:w-72 md:w-64 w-60 max-w-xs"
+                />
+              </a>
+            </div>
           </div>
 
           {/* Navbar Center */}

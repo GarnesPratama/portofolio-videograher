@@ -9,8 +9,8 @@ const Jumbotron = () => {
 
   return (
     <div
-      className="-mt-[100px] text-white bg-[url('/Landing/jumbotron.svg')] bg-cover bg-center"
-      style={{ height: "calc(100vh + 20px)" }}
+      className="-mt-[100px] text-white bg-[url('/Landing/jumbotron.svg')] bg-cover bg-center w-full h-screen "
+      // style={{ height: "calc(100vh + 20px)" }}
     >
       <h1 className="text-center mx-auto pt-[250px] sm:pt-[300px] font-forum leading-tight text-[32px] sm:text-[48px] md:text-[61px] lg:text-[70px] px-4 mb-[500px] sm:mb-[600px]">
         <motion.span
@@ -21,7 +21,11 @@ const Jumbotron = () => {
             ease: "easeInOut",
             delay: 0.5, // Delay before animation starts
           }}
-          style={{ display: "inline-block", whiteSpace: "nowrap", overflow: "hidden" }}
+          style={{
+            display: "inline-block",
+            whiteSpace: "nowrap",
+            overflow: "hidden",
+          }}
         >
           {text1.split("").map((char, index) => (
             <motion.span
@@ -88,9 +92,9 @@ const Jumbotron = () => {
         <Image
           src={"/Landing/arrow_down.svg"}
           alt="arrow-down"
-          width={40}
-          height={40}
-          className="cursor-pointer sm:w-[50px] sm:h-[50px] animate-bounce"
+          width={30}
+          height={30}
+          className="cursor-pointer sm:w-[50px] sm:h-[500px] animate-bounce"
         />
       </div>
     </div>
