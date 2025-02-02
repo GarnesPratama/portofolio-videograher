@@ -85,7 +85,7 @@ const ContentDetailModule = () => {
                   {detail?.title}
                 </h1>
                 <p className=" text-[#454545] lg:mt-5 md:mt-4 mt-3 lg:text-[20px] md:text-[18px] text-[16px]  font-[400] text-justify">
-                  {detail?.description}
+                  {detail?.content}
                 </p>
                 {/* <p className=" font-[700] text-[#454545] lg:text-[25px] md:text-[22px] text-[18px] lg:mt-10 md:mt-6 mt-4">
                   Cinematography:

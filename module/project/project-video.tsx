@@ -109,7 +109,7 @@ const ListProjectVideo: React.FC<ListProjectProps> = ({ selectedCategory }) => {
             }}
           >
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
+              // initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1.2, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.3 }}
