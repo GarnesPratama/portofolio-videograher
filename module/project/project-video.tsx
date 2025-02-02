@@ -24,40 +24,6 @@ const ListProjectVideo: React.FC<ListProjectProps> = ({ selectedCategory }) => {
     )
   );
 
-  // const dummyContent = [
-  //   {
-  //     id: 1,
-  //     imgSrc: "/project/dummy_all_page_video1.svg",
-  //     title:
-  //       "Diaries Festival ANTV Rame: Gildcoustic Bikin Penonton Nangis Dipanggung",
-  //     description: "Resonate ANTV Jamming Session",
-  //     tags: ["Video Editing", "Color Grading", "Cinematography"],
-  //   },
-  //   {
-  //     id: 2,
-  //     imgSrc: "/project/dummy_all_page_video2.svg",
-  //     title:
-  //       "Diaries Festival ANTV Rame: Gildcoustic Bikin Penonton Nangis Dipanggung",
-  //     description: "Resonate ANTV Jamming Session",
-  //     tags: ["Video Editing", "Color Grading", "Cinematography"],
-  //   },
-  //   {
-  //     id: 3,
-  //     imgSrc: "/project/dummy_all_page_video3.svg",
-  //     title:
-  //       "Diaries Festival ANTV Rame: Gildcoustic Bikin Penonton Nangis Dipanggung",
-  //     description: "Resonate ANTV Jamming Session",
-  //     tags: ["Video Editing", "Color Grading", "Cinematography"],
-  //   },
-  //   {
-  //     id: 4,
-  //     imgSrc: "/project/dummy_all_page_video4.svg",
-  //     title:
-  //       "Diaries Festival ANTV Rame: Gildcoustic Bikin Penonton Nangis Dipanggung",
-  //     description: "Resonate ANTV Jamming Session",
-  //     tags: ["Video Editing", "Color Grading", "Cinematography"],
-  //   },
-  // ];
 
   // Hook untuk menghitung scroll progress
   const handleScroll = () => {
@@ -70,7 +36,7 @@ const ListProjectVideo: React.FC<ListProjectProps> = ({ selectedCategory }) => {
 
   // Scroll otomatis ke gambar ketika gambar masuk ke viewport
   const handleImageEnter = (index: number) => {
-    if (!pageLoaded) return; // Jangan scroll otomatis sebelum halaman dimuat
+    if (!pageLoaded || window.innerWidth < 1024) return; // Aktif hanya di layar ≥1024px
     const imageElement = imageRefs.current[index];
     if (imageElement) {
       window.scrollTo({
@@ -109,7 +75,6 @@ const ListProjectVideo: React.FC<ListProjectProps> = ({ selectedCategory }) => {
             }}
           >
             <motion.div
-              // initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1.2, ease: "easeOut" }}
               viewport={{ once: true, amount: 0.3 }}
@@ -118,12 +83,14 @@ const ListProjectVideo: React.FC<ListProjectProps> = ({ selectedCategory }) => {
               <img
                 src={project?.cover?.url}
                 alt="dummy-photo"
-                className="object-cover w-full h-screen"
+                className="w-full h-auto max-h-screen lg:object-cover md:object-contain"
               />
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-black bg-opacity-50"></div>
             </motion.div>
 
             {/* Project Text and Button */}
-            <div className="absolute lg:bottom-20 md:bottom-5 bottom-0 left-0 right-0 lg:px-20 md:px-10 px-4">
+            <div className="absolute lg:bottom-20 md:bottom-5 bottom-0 left-0 right-0 lg:px-20 md:px-10 px-4 z-10">
               <div className="mt-4 flex flex-wrap gap-3 lg:mb-5 md:mb-3 mb-0 text-[10px]">
                 {project?.categories?.map((tag: any, index: any) => (
                   <div
@@ -136,7 +103,7 @@ const ListProjectVideo: React.FC<ListProjectProps> = ({ selectedCategory }) => {
               </div>
 
               <div className="lg:flex grid justify-between items-center w-full mb-5">
-                <div className=" w-4/5">
+                <div className="w-4/5">
                   <h2 className="lg:text-[30px] md:text-[20px] text-[12px] text-[#F6F6F6] font-[600] mt-5">
                     {project?.title}
                   </h2>
@@ -146,22 +113,16 @@ const ListProjectVideo: React.FC<ListProjectProps> = ({ selectedCategory }) => {
                 </div>
 
                 <button
-                  onClick={() =>
-                    router.push(`/all-project/${project?.documentId}`)
-                  }
+                  onClick={() => router.push(`/all-project/${project?.documentId}`)}
                   className="outline px-3 py-1 w-max lg:mt-0 mt-3 rounded-3xl lg:text-[20px] md:text-[15px] text-[12px] font-[500] border-white text-white hover:bg-[#FEF3EE] hover:border-[#B52419] hover:text-[#B52419] flex items-center"
                 >
                   <p className="font-[500]">View Details</p>
-                  <Image
-                    src={"/arrow_grey.svg"}
-                    alt="Arrow"
-                    width={16}
-                    height={16}
-                  />
+                  <Image src={"/arrow_grey.svg"} alt="Arrow" width={16} height={16} />
                 </button>
               </div>
             </div>
           </section>
+
         ))
       )}
     </>

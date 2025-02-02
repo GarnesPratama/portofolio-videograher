@@ -35,11 +35,15 @@ const ContentDetailModule = () => {
               </ul>
             </section>
             <section className=" lg:-mx-20 md:-mx-16 -mx-6 lg:mt-10 md:mt-8 mt-6">
-              <iframe
-                src={convertToEmbedUrl(detail?.cover_video_content?.url)}
+              <video
                 className="w-full md:h-screen h-96"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              ></iframe>
+                controls
+                preload="auto"
+              >
+                <source src={convertToEmbedUrl(detail?.cover_video_content?.url)} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+
             </section>
             <section className=" lg:mt-16 md:mt-12 mt-8">
               <div className="">
