@@ -11,7 +11,7 @@ const Description = () => {
       <div className="section-1 w-full text-[#5D5D5D]">
         <div className="desc">
           <motion.h1
-            className="text-[32px] sm:text-[36px] md:text-[44px] lg:text-[50px] font-forum font-[400] -mx-6"
+            className="text-[32px] sm:text-[36px] md:text-[44px] lg:text-[50px] font-forum font-[400] relative right-5"
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -38,12 +38,9 @@ const Description = () => {
       </div>
       <div className="section-2 w-full mb-10 lg:mb-0 flex justify-center lg:justify-end">
         <img
-          // src={"/aboutMe/images.svg"}
           src={data?.profile_picture?.url}
-          className="w-1/2 rounded-xl"
+          className="md:w-2/3 w-3/4 rounded-xl object-cover"
           alt={data?.profile_picture?.formats?.thumbnail?.name}
-        // width={300}
-        // height={300}
         />
       </div>
     </div>
