@@ -10,9 +10,9 @@ const Jumbotron = () => {
   return (
     <div
       className="-mt-[100px] text-white bg-[url('/Landing/jumbotron.svg')] bg-cover bg-center w-full h-screen "
-    // style={{ height: "calc(100vh + 20px)" }}
+      // style={{ height: "calc(100vh + 20px)" }}
     >
-      <h1 className="text-center mx-auto pt-[250px] sm:pt-[300px] font-forum leading-tight text-[32px] sm:text-[48px] md:text-[61px] lg:text-[70px] px-4 mb-[500px] sm:mb-[600px]">
+      <h1 className="text-center mx-auto pt-[250px] sm:pt-[300px] font-forum leading-tight text-[30px] sm:text-[48px] md:text-[61px] lg:text-[70px] px-4 mb-[500px] sm:mb-[600px]">
         <motion.span
           initial={{ width: 0 }}
           animate={{ width: "100%" }}
@@ -89,12 +89,10 @@ const Jumbotron = () => {
         </motion.span>
       </h1>
       <div className="flex justify-center">
-        <Image
+        <img
           src={"/Landing/arrow_down.svg"}
           alt="arrow-down"
-          width={30}
-          height={30}
-          className="cursor-pointer sm:w-[50px] sm:h-[500px] animate-bounce"
+          className="cursor-pointer animate-bounce absolute lg:bottom-14 bottom-20 lg:w-9 md:w-8 w-7"
         />
       </div>
     </div>
