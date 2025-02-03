@@ -20,7 +20,7 @@ export const Card = React.memo(
         onMouseEnter={() => setHovered(index)}
         onMouseLeave={() => setHovered(null)}
         className={cn(
-          "rounded-lg relative bg-gray-100 dark:bg-neutral-900 overflow-hidden h-60 md:h-96 w-full transition-all duration-300 ease-out",
+          "rounded-lg relative  bg-gray-100 dark:bg-neutral-900 overflow-hidden h-60 md:h-96 w-full transition-all duration-300 ease-out",
           hovered !== null && hovered !== index && "blur-sm scale-[0.98]"
         )}
       >
@@ -61,7 +61,7 @@ export function FocusCards({
   }
 
   return (
-    <div className="w-full grid grid-cols-1 gap-4 md:gap-7 px-5 md:px-7 md:py-3 py-2">
+    <div className="w-full grid grid-cols-1 gap-4 md:gap-2 px-5 md:px-7 md:py-3 py-2">
       {cards?.length === 0 ? (
         <div className="text-center text-gray-500 text-lg font-medium lg:py-10 md:py-5 py-3">
           Data not found
@@ -77,8 +77,14 @@ export function FocusCards({
         </div>
       ) : (
         cardPairs?.map((pair, index) => (
-          <div key={index} className="w-full flex flex-col md:flex-row gap-4">
-            <div className="w-full md:w-2/5">
+          <div
+            key={index}
+            className="w-full flex flex-col md:flex-row gap-4 mb-3"
+          >
+            {/* Gambar pertama */}
+            <div
+              className={`w-full ${index % 2 === 0 ? "md:w-1/2" : "md:w-2/3"}`}
+            >
               <Card
                 card={pair[0]}
                 index={index * 2}
@@ -87,8 +93,13 @@ export function FocusCards({
               />
             </div>
 
+            {/* Gambar kedua */}
             {pair[1] && (
-              <div className="w-full md:w-3/5">
+              <div
+                className={`w-full ${
+                  index % 2 === 0 ? "md:w-2/3" : "md:w-1/2"
+                }`}
+              >
                 <Card
                   card={pair[1]}
                   index={index * 2 + 1}
