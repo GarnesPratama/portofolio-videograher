@@ -30,7 +30,7 @@ const About = () => {
       </div>
       <div className="w-full md:w-1/2">
         <motion.div
-          className="description font-[400] text-[16px] md:text-[20px] text-[#454545] text-center md:text-left md:mt-0 -mt-4"
+          className="description font-[400] text-[16px] md:text-[20px] text-[#454545] text-center md:text-left md:mt-10 -mt-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}

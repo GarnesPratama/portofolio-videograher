@@ -1,10 +1,17 @@
 import React, { useState } from "react";
 import ListProjectVideo from "./project-video";
 import ListProjectPhoto from "./project-photos";
-// Asumsikan ada komponen Photo juga
+import { useGetAllProject } from "./api"; // Ambil data proyek
 
 const ContentProject = () => {
+  const { data } = useGetAllProject();
   const [selectedCategory, setSelectedCategory] = useState("Video Editing");
+
+  // Ambil kategori unik yang memiliki data
+  const availableCategories = new Set();
+  data?.forEach((project: any) =>
+    project.categories.forEach((category: any) => availableCategories.add(category.name))
+  );
 
   return (
     <div className="bg-white">
@@ -16,39 +23,39 @@ const ContentProject = () => {
           </div>
           <div className="navbar-end w-auto">
             <ul className="menu flex flex-wrap menu-horizontal text-[#454545] font-body text-[16px] md:text-[20px] md:gap-4 gap-2">
-              {/* Filter Buttons */}
-              <button
-                className={`${
-                  selectedCategory === "Video Editing" ? "text-[#E94B26]" : ""
-                }`}
-                onClick={() => setSelectedCategory("Video Editing")}
-              >
-                Video Editing
-              </button>
-              <button
-                className={`${
-                  selectedCategory === "Color Grading" ? "text-[#E94B26]" : ""
-                }`}
-                onClick={() => setSelectedCategory("Color Grading")}
-              >
-                Color Grading
-              </button>
-              <button
-                className={`${
-                  selectedCategory === "Cinematography" ? "text-[#E94B26]" : ""
-                }`}
-                onClick={() => setSelectedCategory("Cinematography")}
-              >
-                Cinematography
-              </button>
-              <button
-                className={`${
-                  selectedCategory === "Photography" ? "text-[#E94B26]" : ""
-                }`}
-                onClick={() => setSelectedCategory("Photography")}
-              >
-                Photography
-              </button>
+              {/* Tampilkan hanya button kategori yang memiliki data */}
+              {availableCategories.has("Video Editing") && (
+                <button
+                  className={`${selectedCategory === "Video Editing" ? "text-[#E94B26]" : ""}`}
+                  onClick={() => setSelectedCategory("Video Editing")}
+                >
+                  Video Editing
+                </button>
+              )}
+              {availableCategories.has("Color Grading") && (
+                <button
+                  className={`${selectedCategory === "Color Grading" ? "text-[#E94B26]" : ""}`}
+                  onClick={() => setSelectedCategory("Color Grading")}
+                >
+                  Color Grading
+                </button>
+              )}
+              {availableCategories.has("Cinematography") && (
+                <button
+                  className={`${selectedCategory === "Cinematography" ? "text-[#E94B26]" : ""}`}
+                  onClick={() => setSelectedCategory("Cinematography")}
+                >
+                  Cinematography
+                </button>
+              )}
+              {availableCategories.has("Photography") && (
+                <button
+                  className={`${selectedCategory === "Photography" ? "text-[#E94B26]" : ""}`}
+                  onClick={() => setSelectedCategory("Photography")}
+                >
+                  Photography
+                </button>
+              )}
             </ul>
           </div>
         </div>
@@ -60,10 +67,7 @@ const ContentProject = () => {
       ) : (
         <ListProjectPhoto
           selectedCategory={
-            selectedCategory as
-              | "Color Grading"
-              | "Cinematography"
-              | "Photography"
+            selectedCategory as "Color Grading" | "Cinematography" | "Photography"
           }
         />
       )}
