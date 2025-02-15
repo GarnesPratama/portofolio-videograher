@@ -41,13 +41,15 @@ const Project = () => {
       </div>
       <div className="mt-[50px]">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          // initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true, amount: 0.2 }} // Animate on scroll
         >
           <Cardlanding />
         </motion.div>
+
+
         {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
