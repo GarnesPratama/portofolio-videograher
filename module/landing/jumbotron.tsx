@@ -3,10 +3,17 @@ import Image from "next/image";
 import React, { useRef } from "react";
 
 const Jumbotron = () => {
+  // const targetRef = useRef<HTMLDivElement>(null);
+
+  // const handleScroll = () => {
+  //   window.scrollBy({ top: 840, behavior: "smooth" });
+  // };
+
   const targetRef = useRef<HTMLDivElement>(null);
 
   const handleScroll = () => {
-    window.scrollBy({ top: 840, behavior: "smooth" });
+    const screenHeight = window.innerHeight;
+    window.scrollBy({ top: screenHeight, behavior: "smooth" });
   };
 
   const text1 = "Your Story, ";
