@@ -23,15 +23,18 @@ const OtherProjectModule = () => {
         <div className="carousel gap-4 flex justify-between">
           {data?.map((project: any, index: any) => {
             return (
-              <div className="carousel-item " key={index}>
+              <div className="carousel-item" key={index}>
                 <a href={`/all-project/${project?.documentId}`}>
-                  <img
-                    // src="/project/detailProject/dummy_detail_1.svg"
-                    src={project?.cover?.url}
-                    alt="project cover"
-                    // alt={project?.cover?.name}
-                    className="object-cover w-96 h-full"
-                  />
+                  <div
+                    className="relative w-96"
+                    style={{ paddingBottom: "56.25%" }}
+                  >
+                    <img
+                      src={project?.cover?.url}
+                      alt="project cover"
+                      className="absolute top-0 left-0 w-full h-full object-cover"
+                    />
+                  </div>
                 </a>
               </div>
             );

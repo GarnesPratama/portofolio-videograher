@@ -6,7 +6,7 @@ const Jumbotron = () => {
   const targetRef = useRef<HTMLDivElement>(null);
 
   const handleScroll = () => {
-    window.scrollBy({ top: 800, behavior: "smooth" });
+    window.scrollBy({ top: 840, behavior: "smooth" });
   };
 
   const text1 = "Your Story, ";
@@ -20,7 +20,11 @@ const Jumbotron = () => {
           initial={{ width: 0 }}
           animate={{ width: "100%" }}
           transition={{ duration: 4, ease: "easeInOut", delay: 0.5 }}
-          style={{ display: "inline-block", whiteSpace: "nowrap", overflow: "hidden" }}
+          style={{
+            display: "inline-block",
+            whiteSpace: "nowrap",
+            overflow: "hidden",
+          }}
         >
           {text1.split("").map((char, index) => (
             <motion.span
@@ -43,7 +47,10 @@ const Jumbotron = () => {
                 key={index}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: (text1.length + index) * 0.1, duration: 0.1 }}
+                transition={{
+                  delay: (text1.length + index) * 0.1,
+                  duration: 0.1,
+                }}
               >
                 {char}
               </motion.span>
@@ -54,14 +61,20 @@ const Jumbotron = () => {
         <motion.span
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: (text1.length + text2.length) * 0.1 + 0.5, duration: 0.1 }}
+          transition={{
+            delay: (text1.length + text2.length) * 0.1 + 0.5,
+            duration: 0.1,
+          }}
         >
           {text3.split("").map((char, index) => (
             <motion.span
               key={index}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ delay: (text1.length + text2.length + index) * 0.1, duration: 0.1 }}
+              transition={{
+                delay: (text1.length + text2.length + index) * 0.1,
+                duration: 0.1,
+              }}
             >
               {char}
             </motion.span>
@@ -76,7 +89,10 @@ const Jumbotron = () => {
           onClick={handleScroll}
         />
       </div>
-      <div ref={targetRef} className="h-screen bg-white flex items-center justify-center">
+      <div
+        ref={targetRef}
+        className="h-screen bg-white flex items-center justify-center"
+      >
         {/* <h2 className="text-white text-4xl">Welcome to the Next Section!</h2> */}
       </div>
     </div>
