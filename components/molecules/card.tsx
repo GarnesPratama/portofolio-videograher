@@ -10,14 +10,17 @@ const Cardlanding = () => {
   useEffect(() => {
     if (data) {
       const sortedProjects = data
-        .sort(
-          (a: any, b: any) =>
-            new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
-        )
+        .sort((a: any, b: any) => {
+          if (b.is_featured === a.is_featured) {
+            return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+          }
+          return b.is_featured ? 1 : -1;
+        })
         .slice(0, 3);
       setLatestProjects(sortedProjects);
     }
   }, [data]);
+
 
   return (
     <>

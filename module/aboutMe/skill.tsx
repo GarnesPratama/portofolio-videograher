@@ -74,7 +74,7 @@ const Skill = () => {
                             "linear-gradient(90deg, rgba(255, 255, 255, 0.5) 0%, rgba(246, 246, 246, 0.5) 100%)",
                         }}
                       >
-                        {/* <img src={items?.img} alt="" className="w-10" /> */}
+                        <img src={items?.image?.url} alt="" className="w-10" />
                         <p className="text-[18px] md:text-[20px] lg:text-[24px] ">
                           {items?.name}
                         </p>
