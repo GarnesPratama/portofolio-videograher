@@ -35,7 +35,17 @@ const ContentDetailModule = () => {
               </ul>
             </section>
             <section className=" lg:-mx-20 md:-mx-16 -mx-6 lg:mt-10 md:mt-8 mt-6">
-              <video
+              {detail?.cover_video_content?.mime !== "image/jpeg" ? (
+                <video className="w-full md:h-screen h-96" controls preload="auto">
+                  <source src={convertToEmbedUrl(detail?.cover_video_content?.url)} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              ) : (
+                <div className="container mx-auto">
+                  <img src={detail?.cover_video_content?.url} alt="Cover" />
+                </div>
+              )}
+              {/* <video
                 className="w-full md:h-screen h-96"
                 controls
                 preload="auto"
@@ -43,6 +53,10 @@ const ContentDetailModule = () => {
                 <source src={convertToEmbedUrl(detail?.cover_video_content?.url)} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
+              <div className=" container mx-auto">
+                <img src={detail?.cover_video_content?.url} />
+              </div> */}
+
 
             </section>
             <section className=" lg:mt-16 md:mt-12 mt-8">

@@ -21,7 +21,7 @@ const GetInTouch = () => {
               height={30}
             />
           </motion.div>
-          <div className="mt-6">
+          <div className="mt-6 text-white">
             <motion.h1
               className="text-[30px] sm:text-[48px] lg:text-[61px] font-[400] font-forum leading-tight"
               initial={{ opacity: 0, y: 20 }}
